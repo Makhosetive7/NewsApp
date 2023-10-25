@@ -7,42 +7,56 @@ const Navigation = () => {
 
   return (
     <Nav>
-      <div className="Logo">
-        <NavLink to="/">SpaceNews</NavLink>
-      </div>
-      <div className="Hamburger" onClick={() => setIsOpen(!isOpen)}>
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
-      <Menu isOpen={isOpen}>
-        <ul>
-          <li>
-            <NavLink to="/" activeClassName="active">
-              Articles
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/blogs" activeClassName="active">
-              Blogs
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/reports" activeClassName="active">
-              Reports
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/bookmarks" activeClassName="active">
-              Bookmarks
-            </NavLink>
-          </li>
-        </ul>
-      </Menu>
-    </Nav>
+    <div className="Logo">
+      <NavLink to="/">SpaceNews</NavLink>
+    </div>
+    <div className="Hamburger" onClick={() => setIsOpen(!isOpen)}>
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
+    <Menu isOpen={isOpen}>
+      <CloseButton onClick={() => setIsOpen(false)}>Close</CloseButton>
+      <ul>
+        <li>
+          <NavLink to="/" activeClassName="active">
+            Articles
+          </NavLink>
+        </li>git 
+        <li>
+          <NavLink to="/blogs" activeClassName="active">
+            Blogs
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/reports" activeClassName="active">
+            Reports
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/bookmarks" activeClassName="active">
+            Bookmarks
+          </NavLink>
+        </li>
+      </ul>
+    </Menu>
+  </Nav>
   );
 };
+
+const CloseButton = styled.div`
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: blue;
+  @media (max-width: 900px) {
+    display: block;
+  }
+`;
 
 const Nav = styled.div`
   display: flex;
@@ -76,6 +90,7 @@ const Nav = styled.div`
   }
 `;
 
+
 const Menu = styled.div`
   display: flex;
   justify-content: space-between;
@@ -85,14 +100,18 @@ const Menu = styled.div`
   ul {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
     list-style-type: none;
     width: 100%;
+  }
+  li{
+    margin-bottom: 1rem;
   }
   a {
     text-decoration: none;
     font-size: 1.4rem;
     color: blue;
-    padding: 1rem;
+    padding: .5rem;
   }
   a:hover {
     border: black;

@@ -79,7 +79,6 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 7rem;
     background-color: #88b8f8;
     h1 {
       font-size: 3rem;
@@ -124,7 +123,6 @@ const Container = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     margin-top: 1rem;
     gap: 1rem;
-
     .subContainer {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -156,13 +154,12 @@ const Container = styled.div`
           letter-spacing: 2px;
           color: blue;
         }
-
         .btns{
           display: flex;
           justify-content: space-around;
           align-items: center;
           width: 100%;
-
+          margin-bottom: 1rem;
           .fav{
               margin-left: 1rem;
               border-radius: 49%;

@@ -65,7 +65,6 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 7rem;
     background-color: #88b8f8;
     h1 {
       font-size: 3rem;
