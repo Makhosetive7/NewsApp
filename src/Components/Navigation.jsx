@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {GoEyeClosed} from "react-icons/go "
+import {GoEyeClosed} from "react-icons/go"
 import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
@@ -23,7 +23,7 @@ const Navigation = () => {
         <li>
           <NavLink to="/" activeClassName="active">
             Articles
-          </NavLink>git 
+          </NavLink>
         </li>
         <li>
           <NavLink to="/blogs" activeClassName="active">
