@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import {GoEyeClosed} from "react-icons/gogit "
 import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
@@ -17,13 +18,13 @@ const Navigation = () => {
       <span />
     </div>
     <Menu isOpen={isOpen}>
-      <CloseButton onClick={() => setIsOpen(false)}>Close</CloseButton>
+      <CloseButton onClick={() => setIsOpen(false)}><GoEyeClosed/></CloseButton>
       <ul>
         <li>
           <NavLink to="/" activeClassName="active">
             Articles
           </NavLink>
-        </li>git 
+        </li>
         <li>
           <NavLink to="/blogs" activeClassName="active">
             Blogs
@@ -100,9 +101,11 @@ const Menu = styled.div`
   ul {
     display: flex;
     justify-content: space-evenly;
-    flex-direction: column;
     list-style-type: none;
     width: 100%;
+    @media (max-width: 900px) {
+      flex-direction: column; 
+    }
   }
   li{
     margin-bottom: 1rem;
