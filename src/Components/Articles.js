@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Article from "../Components/Article";
 import { MediaQuiries } from "./MediaQuiries";
 import {AiOutlineHeart} from "react-icons/ai"
 import styled from "styled-components";
