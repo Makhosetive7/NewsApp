@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiFillDelete} from "react-icons/ai"
-import { MediaQuiries } from "./MediaQuiries";
 
 const Bookmarks = () => {
   const [favorites, setFavorites] = useState([]);
