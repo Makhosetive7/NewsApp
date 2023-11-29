@@ -5,23 +5,53 @@ import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mystyle , setMystyle] = useState({
+    color:"white",
+    backgroundColor:"black"
+  });
 
-  return (
+  const [btntext ,setBtntext] =useState("Enable Light Mode")
+
+ const  togglestyle = ()=>{
+    if(mystyle.color=="white"){
+      setMystyle({
+        color:"black",
+        backgroundColor:"white"
+      })
+      setBtntext("Enable Dark Mode")
+    }
+    else{
+      setMystyle({
+        color:"white",
+        backgroundColor:"black"
+      })
+      setBtntext("Enable Light Mode")
+    }
+  }
+
+ return (
     <Nav>
-    <div className="Logo">
-      <NavLink to="/">SpaceNews</NavLink>
+     
+    <div className="Logo"  >
+      
+    
+      <NavLink to="/" >SpaceNews</NavLink>
+     
+     
+
     </div>
-    <div className="Hamburger" onClick={() => setIsOpen(!isOpen)}>
+    <div className="Hamburger"  onClick={() => setIsOpen(!isOpen)}>
       <span />
       <span />
       <span />
       <span />
     </div>
+    
     <Menu isOpen={isOpen}>
       <CloseButton onClick={() => setIsOpen(false)}><GoEyeClosed/></CloseButton>
-      <ul>
+      <ul >
         <li>
-          <NavLink to="/" activeClassName="active">
+          <NavLink to="/" activeClassName="active" >
             Articles
           </NavLink>
         </li>
@@ -41,12 +71,15 @@ const Navigation = () => {
           </NavLink>
         </li>
       </ul>
+      
     </Menu>
+    
   </Nav>
   );
-};
+ };
 
 const CloseButton = styled.div`
+
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
   top: 10px;
@@ -60,12 +93,14 @@ const CloseButton = styled.div`
 `;
 
 const Nav = styled.div`
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 0.5rem;
   height: 5rem;
+  
   .Logo {
     a {
       font-size: 3rem;
