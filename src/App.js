@@ -6,6 +6,7 @@ import Blogs from "./Components/Blogs";
 import Navigation from "./Components/Navigation";
 import Bookmarks from "./Components/Bookmarks";
 import './App.css'
+import LoginPage from "./Components/LoginPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navigation/>
         <Routes>
           <Route path="/" element={<Articles />} />
+          <Route path="/login" element={<LoginPage/>} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="bookmarks" element=<Bookmarks/> />
