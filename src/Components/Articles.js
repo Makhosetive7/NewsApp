@@ -34,10 +34,40 @@ const Articles = () => {
     getArticles();
   }, []);
 
+//   const [mystyle , setMystyle] = useState({
+//     color:"white",
+//     backgroundColor:"black"
+//   });
+
+//   const [btntext , setBtntext] = useState("Enable Light Mode")
+
+//  const  togglestyle = ()=>{
+//     if(mystyle.color=="white"){
+//       setMystyle({
+//         color:"black",
+//         backgroundColor:"white"
+//       })
+//       setBtntext("Enable Dark Mode")
+//     }
+//     else{
+//       setMystyle({
+//         color:"white",
+//         backgroundColor:"black"
+//       })
+//       setBtntext("Enable Light Mode")
+//     }
+//   }
+
   return (
+    <div className="Button">
+    {/* <button onClick={togglestyle}> {btntext}</button> */}
+  
     <Container>
       {/*<Navigation />*/}
+
+      
       <div className="Banner">
+        
         <h1>News</h1>
         <p>
           Get an overview of the latest Spaceflight news, from various sources!
@@ -45,7 +75,7 @@ const Articles = () => {
         </p>
       </div>
 
-      <div className="ArticleContainer">
+      <div className="ArticleContainer" >
         {articles &&
           articles.map((article, index) => (
             <div className="subContainer">
@@ -77,6 +107,7 @@ const Articles = () => {
       </div>
       <ToastContainer />
     </Container>
+    </div>
   );
 };
 
