@@ -13,7 +13,7 @@ const Articles = () => {
   const handleFavoriteClick = (article) => {
     setFavorites([...favorites, article]);
     console.log(article);
-    toast("Added to favorites!", {
+    toast("Added article to favorites!", {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 2000, // Notification will close after 2 seconds
     });

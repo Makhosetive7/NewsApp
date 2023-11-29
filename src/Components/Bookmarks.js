@@ -18,7 +18,7 @@ const Bookmarks = () => {
       const newFavorites = favorites.filter(article => article !== articleToDelete);
       setFavorites(newFavorites);
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
-      toast("Article Deleted from favorites!", {
+      toast("Deleted from favorites!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
       });

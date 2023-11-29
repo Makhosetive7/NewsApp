@@ -13,7 +13,7 @@ const Blogs = () => {
   const handleFavoriteClick = (blog) => {
     setFavorites([...favorites, blog]);
     console.log(blog);
-    toast("Added to favorites!", {
+    toast("Added blog to favorites!", {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 2000,
     });
