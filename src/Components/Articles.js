@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AiOutlineHeart } from "react-icons/ai";
 import styled from "styled-components";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -10,6 +13,10 @@ const Articles = () => {
   const handleFavoriteClick = (article) => {
     setFavorites([...favorites, article]);
     console.log(article);
+    toast("Added to favorites!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000, // Notification will close after 2 seconds
+    });
   };
 
   useEffect(() => {
@@ -68,6 +75,7 @@ const Articles = () => {
             </div>
           ))}
       </div>
+      <ToastContainer />
     </Container>
   );
 };

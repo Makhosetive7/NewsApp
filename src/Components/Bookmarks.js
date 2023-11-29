@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiFillDelete} from "react-icons/ai"
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Bookmarks = () => {
   const [favorites, setFavorites] = useState([]);
@@ -16,6 +18,10 @@ const Bookmarks = () => {
       const newFavorites = favorites.filter(article => article !== articleToDelete);
       setFavorites(newFavorites);
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
+      toast("Article Deleted from favorites!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+      });
     };
 
   return (
@@ -51,6 +57,7 @@ const Bookmarks = () => {
         </div>
       ))}
     </div>
+    <ToastContainer />
   </Container>
   );
 };
