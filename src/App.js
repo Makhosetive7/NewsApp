@@ -6,21 +6,21 @@ import Blogs from "./Components/Blogs";
 import Navigation from "./Components/Navigation";
 import Bookmarks from "./Components/Bookmarks";
 import './App.css'
-import LoginPage from "./Components/LoginPage";
+import Login from "./Components/Login";
+import PrivateRoute from "./Routing/PrivateRoute"
 
 function App() {
   return (
     <div className="Container">
-        <Navigation/>
-        <Routes>
-          <Route path="/" element={<Articles />} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="bookmarks" element=<Bookmarks/> />
-        </Routes>
-
-
+      <Navigation/>
+      <Routes>
+        <Route path="/" element={<Articles />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/reports" element={<Reports />} />
+        {/* Use PrivateRoute as a route component */}
+        <PrivateRoute path="/bookmarks" component={Bookmarks} />
+      </Routes>
     </div>
   );
 }
