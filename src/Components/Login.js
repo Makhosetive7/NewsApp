@@ -1,32 +1,23 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ history }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Basic validation (you might want to add more robust validation)
-    if (!email || !password) {
-      setError('Please enter both email and password');
-      return;
-    }
-
-    // Check credentials (in a real app, you'd check against a database or use an authentication service)
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('password');
-
-    if (email === storedEmail && password === storedPassword) {
-      // Authentication successful, store credentials in localStorage
+    if (email.trim() !== '' && password.trim() !== '') {
+      // Save credentials to local storage upon successful login
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
 
-      // Redirect to dashboard or any other authorized route
-      history.push('/bookmarks');
+      // Navigate to the bookmarks page after successful login
+      navigate('/bookmarks');
     } else {
-      setError('Invalid email or password');
+      console.log('Invalid credentials');
     }
   };
 
@@ -34,16 +25,19 @@ const Login = ({ history }) => {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button type="submit">Login</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </div>
   );

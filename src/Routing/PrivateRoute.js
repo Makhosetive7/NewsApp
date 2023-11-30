@@ -1,14 +1,15 @@
+// PrivateRoute.js
 import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  // Check authentication status (for example, checking if email and password are in localStorage)
+const PrivateRoute = ({ path, element: Component }) => {
+  // Check if user is authenticated (e.g., by checking local storage)
   const isAuthenticated = !!localStorage.getItem('email') && !!localStorage.getItem('password');
 
   return (
     <Route
-      {...rest}
-      element={isAuthenticated ? <Component /> : <Navigate to="/login" replace />}
+      path={path}
+      element={isAuthenticated ? <Component /> : <Navigate to="/login" />}
     />
   );
 };

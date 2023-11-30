@@ -10,19 +10,18 @@ import Login from "./Components/Login";
 import PrivateRoute from "./Routing/PrivateRoute"
 
 function App() {
-  return (
-    <div className="Container">
+ return (
+  <div className="Container">
       <Navigation/>
       <Routes>
         <Route path="/" element={<Articles />} />
         <Route path="/login" element={<Login />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/reports" element={<Reports />} />
-        {/* Use PrivateRoute as a route component */}
-        <PrivateRoute path="/bookmarks" component={Bookmarks} />
+        <PrivateRoute path="/bookmarks" element={Bookmarks} />
       </Routes>
-    </div>
-  );
+  </div>
+ );
 }
 
 export default App;

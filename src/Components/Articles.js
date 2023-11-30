@@ -48,7 +48,7 @@ const Articles = () => {
       <div className="ArticleContainer">
         {articles &&
           articles.map((article, index) => (
-            <div className="subContainer">
+            <div key={index} className="subContainer">
               <div className="Card_image">
                 <img src={article.imageUrl} alt="" />
               </div>
