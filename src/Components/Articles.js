@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = "9"; // Adjust as needed
 
   const handleFavoriteClick = (article) => {
     setFavorites([...favorites, article]);
@@ -26,13 +28,12 @@ const Articles = () => {
   useEffect(() => {
     const getArticles = async () => {
       const response = await axios.get(
-        "https://api.spaceflightnewsapi.net/v3/articles"
+        `https://api.spaceflightnewsapi.net/v3/articles?page=${currentPage}&limit=${pageSize} `
       );
-      console.log(response);
       setArticles(response.data);
     };
     getArticles();
-  }, []);
+  }, [currentPage, pageSize]);
 
   return (
     <Container>
@@ -74,6 +75,18 @@ const Articles = () => {
               </div>
             </div>
           ))}
+      </div>
+      <div className="PaginationControls">
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous Page
+        </button>
+        <span>Page {currentPage}</span>
+        <button onClick={() => setCurrentPage(currentPage + 1)}>
+          Next Page
+        </button>
       </div>
       <ToastContainer />
     </Container>
