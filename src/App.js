@@ -14,16 +14,16 @@ function App() {
     backgroundColor:"black",
    
   });
-  const [Color ,setColor] = useState({
-    color:"blue",
-    backgroundColor:"black"
+  // const [Color ,setColor] = useState({
+  //   color:"blue",
+  //   backgroundColor:"black"
 
-  })
+  // })
 
   const [btntext , setBtntext] = useState("Light")
 
  const  togglestyle = ()=>{
-    if(mystyle.color=="white"){
+    if(mystyle.color==="white"){
       setMystyle({
         color:"black",
         backgroundColor:"white",
@@ -47,7 +47,7 @@ function App() {
       <button onClick={togglestyle}>{btntext}</button>
         <Navigation/>
         <Routes>
-          <Route path="/" element={<Articles />} style={Color} />
+          <Route path="/" element={<Articles />} style={mystyle} />
           <Route path="/blogs" element={<Blogs />}style={mystyle} />
           <Route path="/reports" element={<Reports />}style={mystyle} />
           <Route path="bookmarks" element={<Bookmarks/>} style={mystyle} />
