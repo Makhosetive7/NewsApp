@@ -4,7 +4,8 @@ import { AiOutlineHeart } from "react-icons/ai";
 import styled from "styled-components";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { motion } from "framer-motion";
+import { useAnimate, useInView } from "framer-motion"
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -34,34 +35,21 @@ const Articles = () => {
     getArticles();
   }, []);
 
-//   const [mystyle , setMystyle] = useState({
-//     color:"white",
-//     backgroundColor:"black"
-//   });
+  
+    const [scope, animate] = useAnimate()
+    const isInView = useInView(scope)
+    
+    useEffect(() => {
+       if (isInView) {
+         animate(scope.current, { opacity: 1 })
+       }
+    }, [isInView])
+  
 
-//   const [btntext , setBtntext] = useState("Enable Light Mode")
-
-//  const  togglestyle = ()=>{
-//     if(mystyle.color=="white"){
-//       setMystyle({
-//         color:"black",
-//         backgroundColor:"white"
-//       })
-//       setBtntext("Enable Dark Mode")
-//     }
-//     else{
-//       setMystyle({
-//         color:"white",
-//         backgroundColor:"black"
-//       })
-//       setBtntext("Enable Light Mode")
-//     }
-//   }
 
   return (
     <div className="Button">
-    {/* <button onClick={togglestyle}> {btntext}</button> */}
-  
+   
     <Container>
       {/*<Navigation />*/}
 
@@ -79,8 +67,9 @@ const Articles = () => {
         {articles &&
           articles.map((article, index) => (
             <div className="subContainer">
-              <div className="Card_image">
-                <img src={article.imageUrl} alt="" />
+              <div className="Card_image" ref={scope}>
+              <img src={article.imageUrl} alt="" />
+              
               </div>
               <div className="Card_details">
                 <div className="news_source_title">
@@ -91,7 +80,7 @@ const Articles = () => {
                   200
                 )}...`}</div>
                 <div className="read_like_buttons">
-                  <button className="read_More_button">
+                  <button className="read_More_button" ref={scope} >
                     <a href={article.url}>Read more</a>
                   </button>
                   <button

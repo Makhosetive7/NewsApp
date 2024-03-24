@@ -11,35 +11,34 @@ import { useState } from "react";
 function App() {
   const [mystyle , setMystyle] = useState({
     color:"white",
-    backgroundColor:"black"
+    backgroundColor:"black",
+   
   });
-  const [color ,setColor] = useState({
+  const [Color ,setColor] = useState({
     color:"blue",
     backgroundColor:"black"
 
   })
 
-  const [btntext , setBtntext] = useState("Enable Light Mode")
+  const [btntext , setBtntext] = useState("Light")
 
  const  togglestyle = ()=>{
     if(mystyle.color=="white"){
       setMystyle({
         color:"black",
-        backgroundColor:"white"
+        backgroundColor:"white",
+        
       })
-      setBtntext("Enable Dark Mode")
+      setBtntext("Dark ")
     }
-    else if(color.color =="blue"){
-     setColor({ color:"red",
-     backgroundColor:"black"
-    })
-    }
+  
     else{
       setMystyle({
         color:"white",
-        backgroundColor:"black"
+        backgroundColor:"black",
+        
       })
-      setBtntext("Enable Light Mode")
+      setBtntext("Light")
     }
 
   }
@@ -48,8 +47,8 @@ function App() {
       <button onClick={togglestyle}>{btntext}</button>
         <Navigation/>
         <Routes>
-          <Route path="/" element={<Articles />} style={mystyle} />
-          <Route path="/blogs" element={<Blogs />}style={color} />
+          <Route path="/" element={<Articles />} style={Color} />
+          <Route path="/blogs" element={<Blogs />}style={mystyle} />
           <Route path="/reports" element={<Reports />}style={mystyle} />
           <Route path="bookmarks" element={<Bookmarks/>} style={mystyle} />
         </Routes>
