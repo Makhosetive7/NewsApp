@@ -1,33 +1,22 @@
-# Name: **Makhosetive Sibanda**
-## Project Title: **SpaceNews Launch** :rocket:
-
-
-![banner](image1.jpeg)
-![banner](image2.jpeg)
+## **SpaceNews Launch** :rocket:
+---------------------------------------------------------------------------------------------------------------------------------------------------
+### Description 
+**ReactJS** SpaceNews Launch Web App keeps users updated on space exploration news. Fetches articles from **Spaceflight News API**, presented in a clean, responsive design
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-# Project Description 
-
-This SpaceNews Launch Web App was built using ReactJS to create a user-friendly platform for users to stay updated on the latest news related to space exploration. The app fetches news articles from the Spaceflight News API and displays them in a clean and responsive design, making it easy for users to access information on various space-related topics. The app features a navigation bar, news feed, and individual news items.
----------------------------------------------------------------------------------------------------------------------------------------------------
-# Key Features
-
+#### Key Features
 + Home page: The main landing page showcasing featured news articles and recent blog posts
 + Articles page: Provides an overview of the latest spaceflight news from various sources
 + Blog page: Features detailed blog posts on spaceflight missions and related topics
 + Report page: Displays data from space stations and other missions using the Spaceflight News API
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-# Key lesson Learnt From Building this Project
-
+### Lessons
 During the development of this project, the following concepts and technologies were utilized:
-
-You know me, I am a huge fan of rockets, so what better way to express that than with a space related news website?
-+ React Router DOM: Handling client-side routing in React applications
-+ React Hooks: Managing component state and side effects with useState and useEffect Hooks
-+ Styled Components: Styling components using CSS-in-JS
-+ Fetching Data using Async and Wait: Fetching data from the Spaceflight News API
-+ Styled Components: A CSS-in-JS library for styling components
-+ Responsiveness of Web Pages: Ensuring the app works well on various screen sizes
++ Utilized React Router DOM for client-side routing
++ Employed React Hooks (useState and useEffect) for state management.
++ Styled components using CSS-in-JS.
++ Utilized async/await for fetching data from the Spaceflight News API.
++ Ensured responsiveness of web pages for various screen sizes.
 + API Calls using Axios: Fetching news articles and blog posts from the Spaceflight News API
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 # Getting started with Space News Launch
