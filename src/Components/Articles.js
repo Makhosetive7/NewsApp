@@ -4,7 +4,8 @@ import { AiOutlineHeart } from "react-icons/ai";
 import styled from "styled-components";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { motion } from "framer-motion";
+import { useAnimate, useInView } from "framer-motion"
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -34,10 +35,27 @@ const Articles = () => {
     getArticles();
   }, []);
 
+  
+    const [scope, animate] = useAnimate()
+    const isInView = useInView(scope)
+    
+    useEffect(() => {
+       if (isInView) {
+         animate(scope.current, { opacity: 1 })
+       }
+    }, [isInView])
+  
+
+
   return (
+    <div className="Button">
+   
     <Container>
       {/*<Navigation />*/}
+
+      
       <div className="Banner">
+        
         <h1>News</h1>
         <p>
           Get an overview of the latest Spaceflight news, from various sources!
@@ -45,12 +63,13 @@ const Articles = () => {
         </p>
       </div>
 
-      <div className="ArticleContainer">
+      <div className="ArticleContainer" >
         {articles &&
           articles.map((article, index) => (
             <div className="subContainer">
-              <div className="Card_image">
-                <img src={article.imageUrl} alt="" />
+              <div className="Card_image" ref={scope}>
+              <img src={article.imageUrl} alt="" />
+              
               </div>
               <div className="Card_details">
                 <div className="news_source_title">
@@ -61,7 +80,7 @@ const Articles = () => {
                   200
                 )}...`}</div>
                 <div className="read_like_buttons">
-                  <button className="read_More_button">
+                  <button className="read_More_button" ref={scope} >
                     <a href={article.url}>Read more</a>
                   </button>
                   <button
@@ -77,6 +96,7 @@ const Articles = () => {
       </div>
       <ToastContainer />
     </Container>
+    </div>
   );
 };
 
