@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { GoEyeClosed } from "react-icons/go";
 import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
